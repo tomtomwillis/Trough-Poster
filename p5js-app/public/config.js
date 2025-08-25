@@ -2,22 +2,19 @@
 const CONFIG = {
     // Color configuration
     COLORS: {
-      BACKGROUND: (COLOURS4.COL1),      // COL1
-      DRAWING: (COLOURS4.COL2),         // COL2
-      BORDER: '#000000',          // COL3
-      ACCENT1: '#EF6F26',         // COL4 (unused in current sketch)
-      ACCENT2: '#099E65',         // COL5 (unused in current sketch)
-      POINTS: (COLOURS4.COL2),    // Color for the live points
-      TEXT: (COLOURS4.COL1)       // Color for text along path
+      BACKGROUND: (COLOURS5.COL1),      // COL1
+      DRAWING: (COLOURS5.COL2),         // COL2
+      POINTS: (COLOURS5.COL1),    // Color for the live points
+      TEXT: (COLOURS5.COL3)       // Color for text along path
     },
     
     // Drawing animation settings
     ANIMATION: {
-      DURATION: 10000,             // seconds per drawing
-      STROKE_WEIGHT: 2,          // Line thickness
+      DURATION: 1500,             // seconds per drawing
+      STROKE_WEIGHT: 6,          // Line thickness
       POINT_SIZE: 10,              // Size of the live points
       PAUSE_BETWEEN_DRAWINGS: 100, // Pause after completion before next drawing
-      CURVE_SMOOTHING_STEPS: 70    // Intermediate points for smoother curves
+      CURVE_SMOOTHING_STEPS: 1    // Intermediate points for smoother curves
     },
     
     // Jiggle effect settings
@@ -35,8 +32,8 @@ const CONFIG = {
     
     // Text along path settings
     TEXT: {
-        CONTENT: "T R O U G H 0 3", // Text to repeat along path
-        FONT_SIZE: 8,              // Size of text characters
+        CONTENT: "T R O U G H", // Text to repeat along path
+        FONT_SIZE: 6,              // Size of text characters
         LETTER_SPACING: 80,          // Distance between letters along path
         WORD_SPACING: 40,            // Extra distance between words along path
         OPACITY: 255,               // Text opacity (0-255)
@@ -46,8 +43,8 @@ const CONFIG = {
     
     // Grid configuration
     GRID: {
-      ROWS: 4,
-      COLS: 4,
+      ROWS: 6,
+      COLS: 6,
       CELL_PADDING: 0.1           // Padding as fraction of cell size (0.1 = 10% padding)
     },
     

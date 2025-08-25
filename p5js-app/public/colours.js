@@ -31,3 +31,21 @@ const COLOURS1 = {
     COL4: '#EF6F26',
     COL5: '#099E65',
   };
+
+
+  const COLOURS5 = {
+    COL1: '#A9FE00',
+    COL2: '#C1D5A2',
+    COL3: '#000000',
+    COL4: '#EF6F26',
+    COL5: '#099E65',
+  };
+
+
+  const COLOURS6 = {
+    COL1: '#5A4210',
+    COL2: '#453A64',
+    COL3: '#FF4701',
+    COL4: '#000000',
+    COL5: '#099E65',
+  };

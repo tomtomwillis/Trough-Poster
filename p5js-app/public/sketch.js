@@ -63,7 +63,11 @@ function setup() {
   if (dogDrawings.length > 0) {
     populateAllCells(); // Populate all cells in a "complete" state
     nextCellIndex = 0; // Reset the cell index for animation
-    startNextCellDrawing(); // Start animating the first cell
+
+    // Start animating the first cell without resetting to 'empty'
+    setTimeout(() => {
+      startNextCellDrawing();
+    }, CONFIG.ANIMATION.PAUSE_BETWEEN_DRAWINGS);
   } else {
     console.error('No drawings loaded from NDJSON file.');
   }
@@ -167,23 +171,34 @@ function startNextCellDrawing() {
   if (activeCell && activeCell.state === 'animating') {
     return;
   }
-  
-  // Get the next cell in sequence
-  let nextCell = cells[nextCellIndex % cells.length];
-  
+
+  let nextCell;
+
+  if (CONFIG.GRID.RANDOM_REDRAW) {
+    // Select a random cell
+    const emptyCells = cells.filter(cell => cell.state === 'empty');
+    if (emptyCells.length > 0) {
+      nextCell = random(emptyCells);
+    } else {
+      // If no empty cells are available, pick a random filled cell and reset it
+      nextCell = random(cells);
+    }
+  } else {
+    // Select the next cell sequentially
+    nextCell = cells[nextCellIndex % cells.length];
+    nextCellIndex = (nextCellIndex + 1) % cells.length;
+  }
+
   // Reset and setup the cell
   nextCell.state = 'empty';
   nextCell.drawing = null;
   nextCell.allPoints = [];
   nextCell.livePoints = [];
   nextCell.textPositions = [];
-  
+
   // Set up new drawing
   setupCellDrawing(nextCell);
   activeCell = nextCell;
-  
-  // Move to next cell for the following drawing
-  nextCellIndex = (nextCellIndex + 1) % cells.length;
 }
 
 function findNextEmptyCell() {
@@ -560,7 +575,9 @@ function keyPressed() {
     if (CONFIG.DEBUG.SHOW_CELL_BORDERS) {
       drawGridBorders();
     }
-    startNextCellDrawing();
+    setTimeout(() => {
+      startNextCellDrawing(); // Start animating the first cell after reset
+    }, CONFIG.ANIMATION.PAUSE_BETWEEN_DRAWINGS);
   }
 }
 

@@ -45,7 +45,8 @@ const CONFIG = {
     GRID: {
       ROWS: 6,
       COLS: 4,
-      CELL_PADDING: 0.1           // Padding as fraction of cell size (0.1 = 10% padding)
+      CELL_PADDING: 0.1,           // Padding as fraction of cell size (0.1 = 10% padding)
+      RANDOM_REDRAW: true          // If true, cells redraw at random; if false, redraw sequentially
     },
     
     // Canvas settings

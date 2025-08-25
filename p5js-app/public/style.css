@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Default value, will be overridden by JavaScript */
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #000000; /* Default black border */
+}

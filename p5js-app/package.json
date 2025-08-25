@@ -1,0 +1,17 @@
+{
+  "name": "p5js-app",
+  "version": "1.0.0",
+  "description": "A simple p5.js application",
+  "main": "public/sketch.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "dependencies": {
+    "p5": "^1.4.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -43,7 +43,7 @@ const CONFIG = {
     
     // Grid configuration
     GRID: {
-      ROWS: 6,
+      ROWS: 10,
       COLS: 6,
       CELL_PADDING: 0.1           // Padding as fraction of cell size (0.1 = 10% padding)
     },

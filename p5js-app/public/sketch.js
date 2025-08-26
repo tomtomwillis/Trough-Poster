@@ -312,6 +312,16 @@ function updateJiggle(cell) {
   for (let i = 0; i < cell.livePoints.length; i++) {
     let point = cell.livePoints[i];
     let jiggled = applyJiggle(point.originalX, point.originalY, point.globalPointIndex);
+
+    // Add mouse repulsion effect
+    let mouseDist = dist(mouseX, mouseY, jiggled.x, jiggled.y);
+    if (mouseDist < CONFIG.INTERACTIVITY.MOUSE_REPEL_RADIUS) {
+      let repelForce = CONFIG.INTERACTIVITY.REPEL_FORCE * (1 - mouseDist / CONFIG.INTERACTIVITY.MOUSE_REPEL_RADIUS);
+      let angle = atan2(jiggled.y - mouseY, jiggled.x - mouseX);
+      jiggled.x += cos(angle) * repelForce;
+      jiggled.y += sin(angle) * repelForce;
+    }
+
     point.x = jiggled.x;
     point.y = jiggled.y;
   }

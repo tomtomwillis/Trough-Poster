@@ -29,6 +29,11 @@ const CONFIG = {
       Y_FREQUENCY_2: 0.8,         // Secondary frequency for y jiggle
       TEXT_JIGGLE_SCALE: 0.01      // Scale factor for text jiggle (0 = no jiggle, 1 = full jiggle)
     },
+
+    INTERACTIVITY: {
+        MOUSE_REPEL_RADIUS: 150, // Radius within which points are repelled
+        REPEL_FORCE: 30 // Strength of the repulsion
+      },
     
     // Text along path settings
     TEXT: {

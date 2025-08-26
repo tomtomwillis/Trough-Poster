@@ -5,9 +5,19 @@ const CONFIG = {
       BACKGROUND: (COLOURS5.COL1),      // COL1
       DRAWING: (COLOURS5.COL2),         // COL2
       POINTS: (COLOURS5.COL1),    // Color for the live points
-      TEXT: (COLOURS5.COL3)       // Color for text along path
+      TEXT: (COLOURS5.COL3),       // Color for text along path
+      CUSTOM_CELL: (COLOURS5.COL1), // Color for custom drawn cells
+      BORDER: (COLOURS5.COL3) // Color for cell borders
     },
     
+    MODES: {
+        CUSTOM_CELLS: false
+      },
+
+      DRAWING_SELECTION: {
+        RECOGNIZED_PROBABILITY: .9 // Probability of selecting a "recognized" drawing
+    },
+
     // Drawing animation settings
     ANIMATION: {
       DURATION: 1500,             // seconds per drawing
@@ -32,7 +42,8 @@ const CONFIG = {
 
     INTERACTIVITY: {
         MOUSE_REPEL_RADIUS: 150, // Radius within which points are repelled
-        REPEL_FORCE: 30 // Strength of the repulsion
+        REPEL_FORCE: 20, // Strength of the repulsion
+        CUSTOM_CELL_STROKE: 2
       },
     
     // Text along path settings
@@ -43,11 +54,13 @@ const CONFIG = {
     
     // Grid configuration
     GRID: {
-      ROWS: 5,
-      COLS: 5,
-      CELL_PADDING: 0.05,           // Padding as fraction of cell size (0.1 = 10% padding)
-      RANDOM_REDRAW: true          // If true, cells redraw at random; if false, redraw sequentially
-    },
+        ROWS: 5,
+        COLS: 6,  
+        CELL_PADDING: 0.1,
+        RANDOM_REDRAW: true,
+        TOP_PADDING: 95,    // Add this
+        BOTTOM_PADDING: 95  // Add this
+      },
     
     // Canvas settings
     CANVAS: {
@@ -57,10 +70,38 @@ const CONFIG = {
       }
     },
     
+    TEXTURE_DISPLACEMENT: {
+        ENABLED: false,              // Enable/disable texture displacement
+        SHOW_TEXTURE: false,        // Show the texture (for debugging)
+        DISPLACEMENT_STRENGTH: 10,  // Maximum displacement strength
+        BLACK_THRESHOLD: 50,        // Pixel darkness threshold (0-255)
+        INVERT: true               // Invert the displacement effect
+    },
+
     // Debug settings
     DEBUG: {
-      SHOW_CELL_BORDERS: false,   // Show grid cell borders
-      LOG_DRAWINGS: true,         // Log drawing info to console
-      SHOW_FPS: false             // Show frame rate
+        SHOW_TEXTURE_IMAGE: true, // Set to true to show the texture image
+        SHOW_CELL_BORDERS: false,   // Show grid cell borders
+        LOG_DRAWINGS: true,         // Log drawing info to console
+        SHOW_FPS: false             // Show frame rate
+    },
+
+    RECTANGLE_EXCLUSION: {
+        ENABLED: true,                    // Enable rectangle drawing mode
+        COVERAGE_THRESHOLD: 0.6,          // 60% coverage blocks cells
+        REPEL_RADIUS: 3,                // Distance for particle repulsion (increased for magnetic effect)
+        REPEL_STRENGTH: 5,              // Force strength of repulsion (adjusted for magnetic effect)
+        REPEL_DECAY: 2,                   // Decay factor for inverse-square law (e.g., 2 for magnetic-like behavior)
+        SHOW_RECTANGLES: false,           // Make rectangles visible for debugging
+        RECTANGLE_COLOR: [255, 0, 0, 100],// Debug rectangle color (RGBA)
+        STROKE_WIDTH: 0                   // Debug rectangle stroke width
+      },
+
+    BLOCKED_CELL_REPULSION: {
+        ENABLED: false,                // Enable repulsion from blocked cells
+        REPEL_RADIUS: 0,            // Distance for particle repulsion
+        REPEL_STRENGTH: 4,          // Force strength of repulsion
+        REPEL_DECAY: 2,               // Decay factor for inverse-square law
+        SHOW_BLOCKED_CELLS: true      // Debug: Highlight blocked cells
     }
 };

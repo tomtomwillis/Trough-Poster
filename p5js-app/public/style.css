@@ -68,7 +68,7 @@ canvas {
 @keyframes gentleDisplacement {
     0% {
         filter: blur(0px) brightness(100%) contrast(100%);
-        transform: translate(-50.3%, -50%) scale(1);
+        transform: translate(-50.1%, -50%) scale(1);
     
     }
     100% {

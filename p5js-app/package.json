@@ -1,7 +1,7 @@
 {
-  "name": "p5js-app",
+  "name": "TROUGH03",
   "version": "1.0.0",
-  "description": "A simple p5.js application",
+  "description": "A simple p5.js application to promote TROUGH03",
   "main": "public/sketch.js",
   "scripts": {
     "start": "lite-server"

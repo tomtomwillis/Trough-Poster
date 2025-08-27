@@ -47,3 +47,32 @@ canvas {
 #texture-image {
     display: none; /* Hide the texture image */
 }
+
+#lineup-image {
+    position: absolute; /* Position it absolutely within the overlay container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none; /* Ensure it doesn't block canvas interactions */
+    z-index: 2; /* Ensure it appears above the canvas */
+
+    /* Add gentle displacement animation */
+    animation: gentleDisplacement 3s infinite alternate;
+    filter: url('#displacement-filter'); /* Optional: Use an SVG filter for more control */
+}
+
+/* Keyframes for gentle displacement */
+@keyframes gentleDisplacement {
+    0% {
+        filter: blur(0px) brightness(100%) contrast(100%);
+        transform: translate(-50.3%, -50%) scale(1);
+    
+    }
+    100% {
+        filter: blur(0.5px) brightness(100%) contrast(100%);
+        transform: translate(-50%, -50.%) scale(1);
+    }
+}

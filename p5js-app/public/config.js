@@ -48,7 +48,7 @@ const CONFIG = {
     
     // Text along path settings
     TEXT: {
-        CONTENT: "T R O U G H 0 3", // Text to repeat along path
+        CONTENT: "T R O U G H 3", // Text to repeat along path
         FONT_SIZE: 6,              // Size of text characters
       },
     
@@ -59,7 +59,9 @@ const CONFIG = {
         CELL_PADDING: 0.1,
         RANDOM_REDRAW: true,
         TOP_PADDING: 95,    // Add this
-        BOTTOM_PADDING: 95  // Add this
+        BOTTOM_PADDING: 95,  // Add this
+        TOP_PADDING_PERCENTAGE: 0.08, // 5% of the page height
+        BOTTOM_PADDING_PERCENTAGE: 0.08 // 5% of the page height
       },
     
     // Canvas settings

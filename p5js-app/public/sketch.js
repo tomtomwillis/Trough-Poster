@@ -116,30 +116,31 @@ function setup() {
 function initializeCells() {
   cells = [];
   
-  // Only create grid cells if not in custom cell mode
-  if (!CONFIG.MODES.CUSTOM_CELLS) {
-    let drawableHeight = height - CONFIG.GRID.TOP_PADDING - CONFIG.GRID.BOTTOM_PADDING;
-    let cellWidth = width / gridCols;
-    let cellHeight = drawableHeight / gridRows;
-    
-    for (let row = 0; row < gridRows; row++) {
-      for (let col = 0; col < gridCols; col++) {
-        cells.push({
-          row: row,
-          col: col,
-          x: col * cellWidth,
-          y: row * cellHeight + CONFIG.GRID.TOP_PADDING,
-          width: cellWidth,
-          height: cellHeight,
-          state: 'empty', // 'empty', 'animating', 'complete'
-          drawing: null,
-          allPoints: [],
-          livePoints: [],
-          textPositions: [],
-          animationStartTime: 0,
-          cellIndex: row * gridCols + col // NEW: Add cell index for blocking
-        });
-      }
+  // Calculate dynamic vertical padding based on page height
+  const topPadding = height * CONFIG.GRID.TOP_PADDING_PERCENTAGE; // e.g., 0.05 for 5%
+  const bottomPadding = height * CONFIG.GRID.BOTTOM_PADDING_PERCENTAGE; // e.g., 0.05 for 5%
+  const drawableHeight = height - topPadding - bottomPadding;
+
+  let cellWidth = width / gridCols;
+  let cellHeight = drawableHeight / gridRows;
+  
+  for (let row = 0; row < gridRows; row++) {
+    for (let col = 0; col < gridCols; col++) {
+      cells.push({
+        row: row,
+        col: col,
+        x: col * cellWidth,
+        y: row * cellHeight + topPadding,
+        width: cellWidth,
+        height: cellHeight,
+        state: 'empty', // 'empty', 'animating', 'complete'
+        drawing: null,
+        allPoints: [],
+        livePoints: [],
+        textPositions: [],
+        animationStartTime: 0,
+        cellIndex: row * gridCols + col // NEW: Add cell index for blocking
+      });
     }
   }
   

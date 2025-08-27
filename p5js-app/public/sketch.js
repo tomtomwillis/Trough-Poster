@@ -1002,7 +1002,11 @@ function clearExclusionRectangles() {
 
 function keyPressed() {
   if (key === ' ') {
-    // Space bar to clear all cells and start over
+    // Toggle between modes
+    CONFIG.MODES.CUSTOM_CELLS = !CONFIG.MODES.CUSTOM_CELLS;
+    console.log(`Mode switched to: ${CONFIG.MODES.CUSTOM_CELLS ? 'Custom Cells' : 'Default'}`);
+    
+    // Reset the canvas and cells when switching modes
     background(CONFIG.COLORS.BACKGROUND);
     resetAllCells();
     nextCellIndex = 0; // Reset cell cycling

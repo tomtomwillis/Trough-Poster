@@ -22,7 +22,7 @@ const CONFIG = {
     ANIMATION: {
       DURATION: 1500,             // seconds per drawing
       STROKE_WEIGHT: 3,          // Line thickness
-      POINT_SIZE: 10,              // Size of the live points
+      POINT_SIZE: 7,              // Size of the live points
       PAUSE_BETWEEN_DRAWINGS: 10, // Pause after completion before next drawing
       CURVE_SMOOTHING_STEPS: 1    // Intermediate points for smoother curves
     },
@@ -49,17 +49,17 @@ const CONFIG = {
     // Text along path settings
     TEXT: {
         CONTENT: "T R O U G H 3", // Text to repeat along path
-        FONT_SIZE: 6,              // Size of text characters
+        FONT_SIZE: 5,              // Size of text characters
       },
     
     // Grid configuration
     GRID: {
         ROWS: 5,
-        COLS: 6,  
+        COLS: 5,  
         CELL_PADDING: 0.1,
         RANDOM_REDRAW: true,
-        TOP_PADDING: 95,    // Add this
-        BOTTOM_PADDING: 95,  // Add this
+        TOP_PADDING: 105,    // Add this
+        BOTTOM_PADDING: 70,  // Add this
         TOP_PADDING_PERCENTAGE: 0.08, // 5% of the page height
         BOTTOM_PADDING_PERCENTAGE: 0.08 // 5% of the page height
       },
@@ -89,7 +89,7 @@ const CONFIG = {
     },
 
     RECTANGLE_EXCLUSION: {
-        ENABLED: true,                    // Enable rectangle drawing mode
+        ENABLED: false,                    // Enable rectangle drawing mode
         COVERAGE_THRESHOLD: 0.6,          // 60% coverage blocks cells
         REPEL_RADIUS: 3,                // Distance for particle repulsion (increased for magnetic effect)
         REPEL_STRENGTH: 5,              // Force strength of repulsion (adjusted for magnetic effect)

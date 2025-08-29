@@ -20,7 +20,7 @@ const CONFIG = {
 
     // Drawing animation settings
     ANIMATION: {
-      DURATION: 3000,             // seconds per drawing
+      DURATION: 1500,             // seconds per drawing
       STROKE_WEIGHT: 3,          // Line thickness
       POINT_SIZE: 10,              // Size of the live points
       PAUSE_BETWEEN_DRAWINGS: 10, // Pause after completion before next drawing
@@ -54,8 +54,8 @@ const CONFIG = {
     
     // Grid configuration
     GRID: {
-        ROWS: 4,
-        COLS: 5,  
+        ROWS: 5,
+        COLS: 4,  
         CELL_PADDING: 0.1,
         RANDOM_REDRAW: true,
         TOP_PADDING: 105,    // Add this
